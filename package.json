@@ -1,6 +1,6 @@
 {
   "name": "zeltrezjs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "ZelTreZ JavaScript based library. Basic address and transaction construction for various cryptocurrencies.",
   "main": "./lib/index.js",
   "repository": "https://github.com/zelcash/zeltrezjs.git",
@@ -8,26 +8,21 @@
   "license": "MIT",
   "dependencies": {
     "bs58": "^4.0.1",
-    "bs58check": "^2.0.2",
-    "create-hash": "^1.1.3",
-    "create-hmac": "^1.1.6",
-    "elliptic": "^6.4.0",
+    "bs58check": "^2.1.2",
+    "create-hash": "^1.2.0",
+    "elliptic": "^6.5.1",
     "groestl-hash-js": "git://github.com/TheTrunk/groestl-hash-js.git#master",
-    "int64-buffer": "^0.1.9",
-    "libsodium-sumo": "^0.5.2",
-    "libsodium-wrappers-sumo": "^0.5.2",
-    "safe-buffer": "^5.1.1",
+    "libsodium-wrappers-sumo": "^0.7.5",
     "secp256k1": "^3.7.1",
-    "varuint-bitcoin": "^1.0.4"
+    "varuint-bitcoin": "^1.1.2"
   },
   "scripts": {
     "test": "mocha"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
+    "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
-    "chai": "^4.1.0",
-    "flow-bin": "^0.51.0",
-    "mocha": "^3.4.2"
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1"
   }
 }
