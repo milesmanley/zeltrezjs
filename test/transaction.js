@@ -6,7 +6,7 @@ it('serializeTx() and desrializeTx() should be deterministic', function () {
   const blockHash = '00000001cf4e27ce1dd8028408ed0a48edd445ba388170c9468ba0d42fff3052'
   const blockHeight = 142091
 
-  var txobj = zencashjs.transaction.createRawTx(
+  var txobj = zencashjs.transactionzen.createRawTx(
     [{
       txid: '2704a392f88573cb26775e6cf394e4039b430a2375becac454e3e57c88aed59d',
       vout: 0,
@@ -16,8 +16,8 @@ it('serializeTx() and desrializeTx() should be deterministic', function () {
     blockHeight,
     blockHash
   )
-  var txobj_serialized = zencashjs.transaction.serializeTx(txobj)
-  var txobj_deserialized = zencashjs.transaction.deserializeTx(txobj_serialized)
+  var txobj_serialized = zencashjs.transactionzen.serializeTx(txobj)
+  var txobj_deserialized = zencashjs.transactionzen.deserializeTx(txobj_serialized)
 
   // Remove prevScriptPubKey since its not really an attribute
   for (var i = 0; i < txobj.ins.length; i++){
@@ -33,7 +33,7 @@ it('signTx() should be deterministic', function () {
   const blockHash = '00000001cf4e27ce1dd8028408ed0a48edd445ba388170c9468ba0d42fff3052'
   const blockHeight = 142091  
 
-  var txobj = zencashjs.transaction.createRawTx(
+  var txobj = zencashjs.transactionzen.createRawTx(
     [{
       txid: '59982119a451a162afc05d6ffe7c332a8c467d006b3bf95e9ff43599b4ed3d38',
       vout: 0,
@@ -46,8 +46,8 @@ it('signTx() should be deterministic', function () {
 
   const compressPubKey = true
   const SIGHASH_ALL = 1  
-  var signedobj = zencashjs.transaction.signTx(txobj, 0, '2c3a48576fe6e8a466e78cd2957c9dc62128135540bbea0685d7c4a23ea35a6c', compressPubKey, SIGHASH_ALL)
-  var signed_serialized = zencashjs.transaction.serializeTx(signedobj)
+  var signedobj = zencashjs.transactionzen.signTx(txobj, 0, '2c3a48576fe6e8a466e78cd2957c9dc62128135540bbea0685d7c4a23ea35a6c', compressPubKey, SIGHASH_ALL)
+  var signed_serialized = zencashjs.transactionzen.serializeTx(signedobj)
 
   expect(signed_serialized).to.equal('0100000001383dedb49935f49f5ef93b6b007d468c2a337cfe6f5dc0af62a151a419219859000000006a473044022035f718d8bafdec55f22d705fee46bd9f2c7cd4261c93a4f24161774b84c77e8b02205e9405e0518f4759b68333472090907f0a29c65bb5cf5e9f2ddf2532ddc506330121038a789e0910b6aa314f63d2cc666bd44fa4b71d7397cb5466902dc594c1a0a0d2ffffffff0140420f00000000003f76a914da46f44467949ac9321b16402c32bbeede5e3e5f88ac205230ff2fd4a08b46c9708138ba45d4ed480aed088402d81dce274ecf01000000030b2b02b400000000')
 })
