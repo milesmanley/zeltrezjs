@@ -7,3 +7,12 @@ it('addressFromPublicKey() should be deterministic', function () {
   var address = zeltrezjs.veriblockaddress.addressFromPublicKey(pub);
   expect(address).to.equal('VBZ3J16cLrhxeEwZvswQSucfrFKvMF');
 })
+
+it('isValidStandardAddress() recognises valid addresses', function () {
+  var address = 'VBZ3J16cLrhxeEwZvswQSucfrFKvMF';
+  var boolean = zeltrezjs.veriblockaddress.isValidStandardAddress(address);
+  var address2 = 'aBZ3J16cLrhxeEwZvswQSucfrFKvMF';
+  var boolean2 = zeltrezjs.veriblockaddress.isValidStandardAddress(address2);
+  expect(boolean).to.equal(true);
+  expect(boolean2).to.equal(false);
+})
